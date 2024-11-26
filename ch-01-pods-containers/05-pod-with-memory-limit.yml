@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-memory-limit
+  namespace: osfp
+  labels:
+   app: ubuntu
+spec:
+  containers:
+    - name: ubuntu-container
+      image: ubuntu
+      resources:
+        limits:
+          memory: "250Mi"
+        requests:
+          memory: "150Mi"
