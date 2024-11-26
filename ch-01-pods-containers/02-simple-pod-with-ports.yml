@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod
+  namespace: osfp
+  labels:
+   app: nginx
+spec:
+  containers:
+    - name: nginx-container
+      image: nginx
+      ports:
+        - containerPort: 80
+          name: http
+          protocol: TCP
+            
+
+
+# create a simple pod which has nginx server running, Expose prt 80 using TCP Protocol
+#
+# kubectl create namespace osfp
+# kubectl apply -f 
+# kubectl -n osfp get po
+# kubectl -n osfp descrice pod nginx-pod
+#
+# Find the IP address of this pod and the node where its running 
+#
+# kubectl get po -o wide
+# curl http:ip-address-of-pd
+#
+# kubectl delete po nginx-pod

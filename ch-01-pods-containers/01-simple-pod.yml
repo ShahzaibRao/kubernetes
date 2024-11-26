@@ -8,3 +8,9 @@ spec:
   containers:
     - name: nginx-container
       image: nginx
+
+
+
+# kubectl apply -f 01-simple-pod.yml
+# kubectl get po
+#
