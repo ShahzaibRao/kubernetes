@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: anti-affinity-po
+  namespace: osfp
+  labels:
+   app: old-nginx
+spec:
+  containers:
+    - name: nginx-container
+      image: nginx
+
+
+
+

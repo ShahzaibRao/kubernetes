@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-with-node-affinity-multiple
+  namespace: osfp
+  labels:
+   app: nginx
+spec:
+  containers:
+    - name: nginx-container
+      image: nginx
+      resources:
+        limits:
+          memory: "500Mi"
+        requests:
+          memory: "300Mi"
+  affinity:
+    nodeAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        nodeSelectorTerms:
+        - matchExpressions:
+          - key: size
+            operator: In
+            values:
+            - large
+            - medium
+
+
+# Lets think we have some nodes with label small/medium/large
+# We want this pod to be deployed on either pod having small
+# OR medium label

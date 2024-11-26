@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-with-pod-anti-affinity
+  namespace: osfp
+  labels:
+   app: new-nginx
+spec:
+  containers:
+    - name: nginx-container
+      image: nginx
+  affinity:
+    podAntiAffinity:
+      #    podAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+      - labelSelector:
+          matchExpressions:
+          - key: app
+            operator: In
+            values:
+            - old-nginx
+        topologyKey: "kubernetes.io/hostname"

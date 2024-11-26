@@ -1,0 +1,33 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-with-pod-node-selector
+  namespace: osfp
+  labels:
+   app: nginx
+spec:
+  containers:
+    - name: nginx-container
+      image: nginx
+  nodeSelector:
+        sku: small
+
+
+# First lable your nodes with some  tags, we are classifying our node as small and larg bcz i have two nodes i will give sku values 
+# kubectl get no --show-labels
+# kubectl label nodes node-1 sku=small
+# kubectl lable nodes ndoe-2 sku=large
+#
+# kubectl get no --show-labels
+#
+# kubectl apply -f 02-pod-for-specific-node-selector.yml
+#
+# kubectl get po -n osfp -o wide 
+#
+# check where node is running 
+# 
+# for delete labesl from nodes
+# kubectl label nodes node-1 sku-
+# kubectl label nodes node-2 sku-
+#
+# kubectl get no --show labels

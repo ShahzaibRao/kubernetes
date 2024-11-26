@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-for-spacific-node
+  namespace: osfp
+  labels:
+   app: nginx
+spec:
+  nodeName: node-1 #this will assign pod to specific node
+  containers:
+    - name: nginx-container
+      image: nginx
+
+# kubectl get no
+# kubectl apply -f 01-pod-for-specific-node.yml
+# kubectl -n osfp get po -o wide
