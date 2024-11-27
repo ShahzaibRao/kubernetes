@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nfs-test-deployment
+spec:
+  replicas: 1
+  selector:
+	matchLabels:
+	  app: nfs-test
+  template:
+	metadata:
+	  labels:
+		app: nfs-test
+	spec:
+	  containers:
+	  - name: nginx
+		image: nginx
+		volumeMounts:
+		- name: nfs-pv
+		  mountPath: /usr/share/nginx/html
+	  volumes:
+	  - name: nfs-pv
+		persistentVolumeClaim:
+		  claimName: nfs-pvc
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: nfs-pvc
+spec:
+  accessModes:
+	- ReadWriteMany
+  storageClassName: nfs-default-storage-class
+  resources:
+	requests:
+	  storage: 1Gi

@@ -1,12 +1,11 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: myclaim
+  name: sample-nfs-pvc
 spec:
   accessModes:
     - ReadWriteOnce
-  volumeMode: Filesystem
+  storageClassName: nfs-client
   resources:
     requests:
-      storage: 4Gi
-  storageClassName: slow
+      storage: 2Gi
