@@ -189,7 +189,10 @@ Check if external-dns is up and running.
     deployment.apps/wordpress   1/1     1            1           8m58s
 
 
-![alt text](image.png)
+![image](https://github.com/user-attachments/assets/db57613b-fb56-40c7-82a6-4f19fa7df371)
+![image](https://github.com/user-attachments/assets/e489b374-ff13-48cb-9bbf-c86b1a0e002b)
+
+
 
 ## Now, let’s expose it to the Internet. The configuration is explained below.
 
@@ -224,14 +227,17 @@ hosts[0].host : Hostname that will be used to share the app.
 ## Review and test
 As you can see external-dns has successfully created a few records.
 
-![alt text](image-1.png)
+![image](https://github.com/user-attachments/assets/e74c4a37-4c1f-477f-af76-eb5f21e46768)
+
 
 Let’s test! Browse to blog.raoshahzaib.site and see if it works.
-![alt text](image-2.png)
+![image](https://github.com/user-attachments/assets/9074cab4-c900-4855-9ce1-148b755ca258)
+
 
 
 ## Inspect the server certificate. It should be the default edge certificate provided by Cloudflare, issued by Google.
-![alt text](image-3.png)
+![image](https://github.com/user-attachments/assets/8ed80d36-352f-498e-927e-cf3de76da63a)
+
 
 ## Summary and Conclusion
 We successfully set up the cloudflared tunnel and pointed it to the Ingress Controller. Then, we successfully applied Ingress rules and tested the connection. The whole process is extremely fast and can be easily automated using tools like ArgoCD and Flux.
