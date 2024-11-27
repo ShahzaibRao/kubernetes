@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: empty-pod
+spec:
+#  runtimeClassName: allsecure
+  containers:
+  - image: nginx
+    imagePullPolicy: IfNotPresent
+    name: nginx-con
+    volumeMounts:
+    - mountPath: /usr/share/nginx/html
+      name: demo-volume
+  volumes:
+  - name: demo-volume
+    emptyDir: {}

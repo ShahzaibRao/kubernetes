@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: empty-multi
+spec:
+  containers:
+  - image: httpd
+    imagePullPolicy: IfNotPresent
+    name: httpd-container
+    volumeMounts:
+    - mountPath: /var/www/html/
+      name: demo-volume
+  - name: nginx-container
+    image: nginx
+    volumeMounts:
+    - mountPath: /usr/share/nginx/html/
+      name: demo-volume
+  volumes:
+  - name: demo-volume
+    emptyDir: {}

@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: host-volume-pod
+spec:
+  containers:
+    - name: nginx-container
+      image: nginx
+      volumeMounts:
+        - mountPath: /usr/share/nginx/html
+          name: host-volume
+  volumes:
+    - name: host-volume
+      hostPath:
+        path: /tmp/data
+        type: DirectoryOrCreate
+
