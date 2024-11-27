@@ -1,0 +1,21 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    external-dns.alpha.kubernetes.io/cloudflare-proxied: "true"
+    external-dns.alpha.kubernetes.io/hostname: blog.raoshahzaib.site
+    external-dns.alpha.kubernetes.io/target: 23024f29-ff79-480e-8cd3-8f1ace161421.cfargotunnel.com
+  name: demo-wordpress
+  namespace: wordpress
+spec:
+  rules:
+  - host: blog.raoshahzaib.site
+    http:
+      paths:
+      - backend:
+          service:
+            name: wordpress
+            port:
+              number: 80
+        path: /
+        pathType: Prefix

@@ -1,0 +1,19 @@
+cloudflare:
+  tunnelName: "demo-lab"
+  tunnelId: "23024f29-ff79-480e-8cd3-8f1ace161421"
+  secretName: "tunnel-credentials"
+  ingress:
+    - hostname: "*.raoshahzaib.site"
+      service: "https://ingress-nginx-controller.kube-system.svc.cluster.local:443"
+      originRequest:
+        noTLSVerify: true
+
+resources:
+  limits:
+    cpu: "100m"
+    memory: "128Mi"
+  requests:
+    cpu: "100m"
+    memory: "128Mi"
+
+replicaCount: 1
